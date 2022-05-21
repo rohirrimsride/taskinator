@@ -229,6 +229,7 @@ var loadTasks = function() {
     if (!savedTasks) {
         return false;
     }
+    // parse into array of objects
     savedTasks = JSON.parse(savedTasks);
 
     // loop through saved tasks array
@@ -237,11 +238,11 @@ var loadTasks = function() {
         createTaskEl(savedTasks[i]);
     }    
 };
-
+// for changing the status
 pageContentEl.addEventListener("change", taskStatusChangeHandler);
-
+// for edit and delete buttons
 pageContentEl.addEventListener("click", taskButtonHandler);
-
+//  Create a new task
 formEl.addEventListener("submit", taskFormHandler);
 
 loadTasks();
